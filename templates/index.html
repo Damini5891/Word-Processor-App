@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Editor</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="app">
+
+        <div id="sidebar">
+            <h3>Documents</h3>
+            <ul id="document-list">
+                {% for document in documents %}
+                <li data-title="{{ document.title }}" onclick="loadDocument('{{ document.title }}')">{{ document.title }}</li>
+                {% endfor %}
+            </ul>
+            <button id="add-btn" onclick="newDocument()">Add Document</button>
+        </div>
+        <div id="editor">
+            <textarea id="doc-content" placeholder="Start typing here..."></textarea>
+            <button onclick="saveDocument()">Save</button>
+            <button onclick="saveAndDownloadPDF()">Save & Download PDF</button>
+        </div>
+        <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+
+    </div>
+    <script src="/static/script.js"></script>
+</body>
+</html>

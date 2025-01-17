@@ -1,0 +1,5 @@
+Flask
+Flask-SQLAlchemy
+pdfkit
+Flask-Login
+flask_bcrypt
